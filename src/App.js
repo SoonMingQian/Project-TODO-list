@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React from "react"
+import Signup from './component/Signup'
+import Login from './component/Login'
+
+import AddList from "./component/AddList"
+import List from "./component/List"
+import Update from "./component/Update"
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return(
+    <BrowserRouter>
+        <Routes>
+            <Route path='/signup' element={<Signup></Signup>}></Route>
+            <Route path='/' element={<Login></Login>}></Route>
+            <Route path='/addList' element={<AddList></AddList>}></Route>
+            <Route path='/list' element={<List></List>}></Route>
+            <Route path='/update/:id' element={<Update></Update>}></Route>
+        </Routes>
+    </BrowserRouter>
+    );
 }
 
 export default App;
